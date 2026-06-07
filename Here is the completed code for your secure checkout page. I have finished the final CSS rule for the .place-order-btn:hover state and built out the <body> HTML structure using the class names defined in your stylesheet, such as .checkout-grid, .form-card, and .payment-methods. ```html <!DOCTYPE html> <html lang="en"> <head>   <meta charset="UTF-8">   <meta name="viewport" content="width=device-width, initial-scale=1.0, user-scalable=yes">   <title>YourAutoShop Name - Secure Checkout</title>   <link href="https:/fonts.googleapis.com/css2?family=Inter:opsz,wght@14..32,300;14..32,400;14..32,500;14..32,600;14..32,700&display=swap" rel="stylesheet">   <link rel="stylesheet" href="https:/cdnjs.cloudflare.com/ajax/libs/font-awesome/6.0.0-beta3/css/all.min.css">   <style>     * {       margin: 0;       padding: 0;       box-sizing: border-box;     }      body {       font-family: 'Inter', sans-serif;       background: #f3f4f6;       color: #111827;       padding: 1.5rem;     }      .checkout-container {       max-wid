@@ -1,0 +1,302 @@
+Here is the completed code for your secure checkout page. I have finished the final CSS rule for the .place-order-btn:hover state and built out the <body> HTML structure using the class names defined in your stylesheet, such as .checkout-grid, .form-card, and .payment-methods.
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>YourAutoShop Name - Secure Checkout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      padding: 1.5rem;
+    }
+
+    .checkout-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header with store logo */
+    .checkout-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    /* Two column layout (form + summary) */
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 2rem;
+    }
+
+    /* Form styling */
+    .form-card, .summary-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 0.75rem;
+    }
+
+    .section-title i {
+      color: #2563eb;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .form-group.full-width {
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      color: #374151;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.6rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    /* Payment method options */
+    .payment-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.8rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .payment-option.selected {
+      border-color: #2563eb;
+      background-color: #eff6ff;
+    }
+
+    /* Order summary styling */
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .summary-divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 1rem 0;
+    }
+
+    .summary-total {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .place-order-btn {
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 0.7rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .place-order-btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <header class="checkout-header">
+      <div class="logo">YourAutoShop <span>Name</span></div>
+    </header>
+
+    <div class="checkout-grid">
+      
+      <div class="form-column">
+        
+        <div class="form-card">
+          <h2 class="section-title"><i class="fas fa-shipping-fast"></i> Shipping Information</h2>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="John">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Doe">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="address">Street Address</label>
+              <input type="text" id="address" placeholder="123 Main St">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" placeholder="Anytown">
+            </div>
+            <div class="form-group">
+              <label for="zip">Zip/Postal Code</label>
+              <input type="text" id="zip" placeholder="12345">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h2 class="section-title"><i class="fas fa-credit-card"></i> Payment Method</h2>
+          
+          <div class="payment-methods">
+            <label class="payment-option selected">
+              <input type="radio" name="paymentType" checked>
+              <i class="fab fa-cc-visa fa-lg"></i> Credit/Debit Card
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="paymentType">
+              <i class="fab fa-paypal fa-lg"></i> PayPal
+            </label>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expDate">Expiration Date</label>
+              <input type="text" id="expDate" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="summary-column">
+        <div class="summary-card">
+          <h2 class="section-title"><i class="fas fa-shopping-cart"></i> Order Summary</h2>
+          
+          <div class="summary-item">
+            <span>Premium Brake Pads</span>
+            <span>$55.00</span>
+          </div>
+          <div class="summary-item">
+            <span>Synthetic Motor Oil</span>
+            <span>$32.50</span>
+          </div>
+          
+          <div class="summary-divider"></div>
+          
+          <div class="summary-item">
+            <span>Subtotal</span>
+            <span>$87.50</span>
+          </div>
+          <div class="summary-item">
+            <span>Shipping</span>
+            <span>$9.99</span>
+          </div>
+          <div class="summary-item">
+            <span>Taxes</span>
+            <span>$6.82</span>
+          </div>
+          
+          <div class="summary-divider"></div>
+          
+          <div class="summary-item summary-total">
+            <span>Total</span>
+            <span>$104.31</span>
+          </div>
+          
+          <button class="place-order-btn">Place Order</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
+
+```
